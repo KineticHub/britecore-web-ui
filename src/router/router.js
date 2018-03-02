@@ -5,6 +5,7 @@ import About from '@/components/About'
 import Risks from '@/components/Risks'
 import RiskDetails from '@/components/RiskDetails'
 import RiskTypes from '@/components/RiskTypes'
+import RiskTypeDetails from '@/components/RiskTypeDetails'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/risks/types', // this should show a single card with details and a form to edit
       name: 'RiskTypes',
       component: RiskTypes
+    },
+    {
+      path: '/risks/types/:name', // this should show a single card with details and a form to edit
+      name: 'RiskTypeDetails',
+      component: RiskTypeDetails
     },
     {
       path: '/risks/:uuid', // this should show a single card with details and a form to edit
