@@ -32,12 +32,12 @@ export default new Router({
       component: RiskTypes
     },
     {
-      path: '/risks/types/:name', // this should show a single card with details and a form to edit
+      path: '/risks/types/edit/:name?', // this should show a single card with details and a form to edit
       name: 'RiskTypeDetails',
       component: RiskTypeDetails
     },
     {
-      path: '/risks/:uuid', // this should show a single card with details and a form to edit
+      path: '/risks/edit/:uuid?', // this should show a single card with details and a form to edit
       name: 'RiskDetails',
       component: RiskDetails
     }

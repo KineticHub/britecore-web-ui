@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <el-row>
     <el-card v-for="type in types" :key="type.name" class="" style="width: 30%;">
       <div slot="header">
-        <router-link v-bind:to="'/risks/types/' + type.name + '/'">{{ type.name }}</router-link>
+        <router-link v-bind:to="'/risks/types/edit/' + type.name + '/'">{{ type.name }}</router-link>
         <!--<span style="float: right; padding: 3px;">{{ risk.type }}</span>-->
         <!--<el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>-->
       </div>
@@ -10,7 +10,8 @@
         {{ field.name }} : {{ field.field_type }}
       </div>
     </el-card>
-  </div>
+    <router-link to="/risks/types/edit/"><el-button type="primary" @click="">New risk type</el-button></router-link>
+  </el-row>
 </template>
 <script>
   import axios from 'axios'

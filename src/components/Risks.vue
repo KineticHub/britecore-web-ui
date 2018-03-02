@@ -2,7 +2,7 @@
   <div>
     <el-card v-for="risk in risks" :key="risk.name" class="" style="width: 30%;">
       <div slot="header">
-        <router-link v-bind:to="'/risks/' + risk.uuid + '/'">{{ risk.name }}</router-link>
+        <router-link v-bind:to="'/risks/edit/' + risk.uuid + '/'">{{ risk.name }}</router-link>
         <!--<span style="float: right; padding: 3px;">{{ risk.type }}</span>-->
         <!--<el-button style="float: right; padding: 3px 0" type="text">Operation button</el-button>-->
       </div>
