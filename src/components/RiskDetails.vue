@@ -12,7 +12,7 @@
                         v-model="field.value" :placeholder="field.name"></el-input>
               <el-input-number v-if="field.field_type==='number'"
                                :controls="false" v-model="field.value" :placeholder="field.name"></el-input-number>
-              <el-date-picker v-if="field.field_type==='date'"
+              <el-date-picker v-if="field.field_type==='date'" @click.native="onChange()" @blur="onChange()"
                               type="date" v-model="field.value" :placeholder="field.name"></el-date-picker>
               <el-select v-if="field.field_type==='enum'"
                          v-model.trim="field.value" :placeholder="field.name" @change="onChange()">
@@ -124,8 +124,8 @@
             console.log(err)
           })
       },
-      onChange() {
-        // enum field was failing to reload
+      onChange: function() {
+        // enum and date field was failing to reload
         this.$forceUpdate()
       }
     }
