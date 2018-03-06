@@ -27,6 +27,7 @@
           </el-row>
         </el-form>
       </el-card>
+      <br>
       <el-button type="primary" @click="submitForm">Save changes</el-button>
     </el-col>
   </el-row>
