@@ -1,6 +1,6 @@
 <template>
   <el-row :gutter="20">
-    <el-col :span="16" :offset="4">
+    <el-col :span="8" :offset="8">
       <el-card class="">
         <el-form :inline="true" :model="riskTypeForm" class="">
           <el-form-item label="Type Name">
@@ -16,6 +16,15 @@
                 <el-option v-for="(option, index) in riskTypeForm.fieldOptions"
                            :label="option" :value="option" :key="index"></el-option>
               </el-select>
+            </el-form-item>
+            <el-form-item>
+              <el-input
+                type="textarea"
+                :rows="2"
+                v-if="field.field_type==='enum'"
+                placeholder="Enum field options, separated by commas"
+                v-model="field.field_choices">
+              </el-input>
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="removeField(index)">Remove</el-button>
@@ -39,7 +48,7 @@
     data() {
       return {
         riskTypeForm: {
-          riskType: {fields:[{name:"", field_type:""}]},
+          riskType: {fields:[{name:"", field_type:"", field_choices:""}]},
           fieldOptions: []
         }
       }
@@ -75,7 +84,7 @@
           })
       },
       addField: function() {
-        this.riskTypeForm.riskType.fields.push({name:"", field_type:""});
+        this.riskTypeForm.riskType.fields.push({name:"", field_type:"", field_choices:""});
       },
       removeField: function(index) {
         this.riskTypeForm.riskType.fields.splice(index, 1);

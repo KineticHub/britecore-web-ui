@@ -1,6 +1,7 @@
 <template>
   <el-row>
-    <el-card v-for="type in types" :key="type.name" class="" style="width: 30%;">
+    <el-col :span="8" :offset="8">
+    <el-card v-for="type in types" :key="type.name" class="">
       <div slot="header">
         <router-link v-bind:to="'/risks/types/edit/' + type.name + '/'">{{ type.name }}</router-link>
         <!--<span style="float: right; padding: 3px;">{{ risk.type }}</span>-->
@@ -10,7 +11,9 @@
         {{ field.name }} : {{ field.field_type }}
       </div>
     </el-card>
-    <router-link to="/risks/types/edit/"><el-button type="primary" @click="">New risk type</el-button></router-link>
+      <br>
+    <router-link :to="'/risks/types/new'"><el-button type="primary" @click="">New risk type</el-button></router-link>
+    </el-col>
   </el-row>
 </template>
 <script>
