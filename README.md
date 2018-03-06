@@ -1,4 +1,4 @@
-# test-router-app
+# britecore-web-ui
 
 > A Vue.js project
 
