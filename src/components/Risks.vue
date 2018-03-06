@@ -4,6 +4,9 @@
       <el-card v-for="risk in risks" :key="risk.uuid" class="">
         <div slot="header">
           <router-link v-bind:to="'/risks/edit/' + risk.uuid + '/'">{{ risk.name }}</router-link>
+          <span style="float: right;">
+            type: {{ risk.type }}
+          </span>
         </div>
         <div v-for="field in risk.fields" :key="field.name">
           {{ field.name }} : {{ field.value }}
