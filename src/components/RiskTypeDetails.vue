@@ -104,22 +104,31 @@
           })
           .then((resp) => {
             console.log(resp.data)
+            this.showMessageAndNavigate('Successfully created new risk type')
           })
           .catch((err) => {
             console.log(err)
           })
       },
       putData: function() {
-        axios.put("http://localhost:8000/api/risks/types/"+this.riskTypeForm.riskType.name+"/", {
+        axios.put("http://localhost:8000/api/risks/types/" + this.riskTypeForm.riskType.name + "/", {
           name: this.riskTypeForm.riskType.name,
           fields: this.riskTypeForm.riskType.fields
         })
-        .then((resp) => {
-          console.log(resp.data)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+          .then((resp) => {
+            console.log(resp.data)
+            this.showMessageAndNavigate('Successfully updated risk type')
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      },
+      showMessageAndNavigate (message) {
+        this.$message({
+          message: message,
+          type: 'success'
+        });
+        this.$router.push('/risks/types')
       }
     }
   }

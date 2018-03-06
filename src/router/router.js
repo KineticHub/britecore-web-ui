@@ -11,36 +11,36 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Home',
+      component: Risks
+    },
+    {
+      path: '/risks', // all risks and details
       name: 'Risks',
       component: Risks
     },
     {
-      path: '/risks', // this should show risk name and type at top of card and details when expanded
-      name: 'Risks',
-      component: Risks
+      path: '/risks/new/:type', // create a new risk of given type
+      name: 'RiskNew',
+      component: RiskDetails
     },
     {
-      path: '/risks/new/:type', // this should show risk name and type at top of card and details when expanded
+      path: '/risks/edit/:uuid?', // update a risk with uuid
       name: 'RiskDetails',
       component: RiskDetails
     },
     {
-      path: '/risks/edit/:uuid?', // this should show a single card with details and a form to edit
-      name: 'RiskDetails',
-      component: RiskDetails
-    },
-    {
-      path: '/risks/types', // this should show a single card with details and a form to edit
+      path: '/risks/types', // all risk types with fields
       name: 'RiskTypes',
       component: RiskTypes
     },
     {
-      path: '/risks/types/new', // this should show a single card with details and a form to edit
-      name: 'RiskTypeDetails',
+      path: '/risks/types/new', // create a new risk type
+      name: 'RiskTypeNew',
       component: RiskTypeDetails
     },
     {
-      path: '/risks/types/edit/:name?', // this should show a single card with details and a form to edit
+      path: '/risks/types/edit/:name?', // update a given risk type
       name: 'RiskTypeDetails',
       component: RiskTypeDetails
     }

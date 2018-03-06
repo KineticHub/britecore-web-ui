@@ -111,6 +111,7 @@
         axios.post("http://localhost:8000/api/risks/", this.riskForm.risk)
           .then((resp) => {
             console.log(resp.data)
+            this.showMessageAndNavigate("Successfully created new risk")
           })
           .catch((err) => {
             console.log(err)
@@ -120,6 +121,7 @@
         axios.put("http://localhost:8000/api/risks/" + this.$route.params.uuid + "/", this.riskForm.risk)
           .then((resp) => {
             console.log(resp.data)
+            this.showMessageAndNavigate('Successfully updated risk')
           })
           .catch((err) => {
             console.log(err)
@@ -128,6 +130,13 @@
       onChange: function() {
         // enum and date field was failing to reload
         this.$forceUpdate()
+      },
+      showMessageAndNavigate (message) {
+        this.$message({
+          message: message,
+          type: 'success'
+        });
+        this.$router.push('/risks')
       }
     }
   }
